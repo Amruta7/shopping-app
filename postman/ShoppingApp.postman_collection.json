@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "e3013c7e-1e30-4f8b-857c-2a147cc61e65",
+		"name": "ShoppingApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8082/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"amruta@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/users/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"amruta@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/orders/cart/checkout",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "userId",
+						"value": "62dc4a43-b4de-4eee-86a5-941c7db71bd7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"itemName\":\"mobile\",\r\n    \"amount\":\"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/orders/cart/checkout/payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "userId",
+						"value": "e745a1ab-a414-4d4d-aeda-021fda64448d",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"paymentDetails\": {\r\n            \"fullName\": \"Amruta\",\r\n            \"email\": \"amruta@gmail.com\",\r\n            \"phone\": \"1234567890\",\r\n            \"companyName\": \"Symbo\",\r\n            \"streetAddress\": \"vashi\",\r\n            \"city\": \"Mumbai\",\r\n            \"state\": \"Maharashtra\",\r\n            \"postalCode\": \"400703\",\r\n            \"country\": \"India\"\r\n        },\r\n        \"orderDto\": {\r\n            \"products\": [\r\n                {\r\n                    \"productId\": 12,\r\n                    \"name\": \"top\",\r\n                    \"price\": 1000.0,\r\n                    \"pictureUrl\": \"abc\",\r\n                    \"quantity\": 1\r\n                },\r\n                {\r\n                    \"productId\": 123,\r\n                    \"name\": \"mobile\",\r\n                    \"price\": 1000.0,\r\n                    \"pictureUrl\": \"xyz\",\r\n                    \"quantity\": 2\r\n                }\r\n            ],\r\n            \"total\": 2000.0\r\n        },\r\n        \"deliveryAddressDetails\":{\r\n            \"fullName\": \"Amruta\",\r\n            \"phone\": \"1234567890\",\r\n            \"streetAddress\": \"vashi\",\r\n            \"city\": \"Mumbai\",\r\n            \"state\": \"Maharashtra\",\r\n            \"postalCode\": \"400703\",\r\n            \"country\": \"India\"\r\n        }\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/orders/cart/checkout/payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"orders",
+						"cart",
+						"checkout",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/orders/view",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "userId",
+						"value": "e745a1ab-a414-4d4d-aeda-021fda64448d",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8082/orders/view",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"orders",
+						"view"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/orders/product/review",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/products/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"mobile\",\r\n    \"price\":1000.0,\r\n    \"pictureUrl\":\"xyz\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/products/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"products",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
